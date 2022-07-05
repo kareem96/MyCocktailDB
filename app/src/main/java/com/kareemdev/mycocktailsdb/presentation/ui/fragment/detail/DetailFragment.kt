@@ -46,8 +46,8 @@ class DetailFragment : Fragment() {
         requireActivity().title = "Drink"
         (activity as AppCompatActivity).supportActionBar?.let {
             it.setHomeButtonEnabled(true)
-            it.setDisplayHomeAsUpEnabled(true)
             it.setDisplayShowHomeEnabled(true)
+            it.setDisplayHomeAsUpEnabled(true)
             it.setHomeAsUpIndicator(R.drawable.ic__back)
         }
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
@@ -66,10 +66,6 @@ class DetailFragment : Fragment() {
                 Glide.with(this)
                     .load(drink.strDrinkThumb)
                     .into(binding.ivDrinkDetail)
-                binding.floatingActionButton.setOnClickListener {
-                    viewModel.favoriteCocktail(drink)
-                    Snackbar.make(view, "Drink saved successfully", Snackbar.LENGTH_SHORT).show()
-                }
             }else{
                 Toast.makeText(
                     this.requireContext(),
@@ -89,7 +85,7 @@ class DetailFragment : Fragment() {
                 is Resource.Success ->{
                     hideProgressBar()
                     response.data?.let { drinkResponse ->
-                        bindItemDetails(drinkResponse.drinks[0])
+                        bindItemsDetail(drinkResponse.drinks[0])
                     }
                 }
                 is Resource.Error -> {
@@ -107,7 +103,7 @@ class DetailFragment : Fragment() {
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
+        when (item.itemId) {
             android.R.id.home -> {
                 findNavController().navigateUp()
                 return true
@@ -117,7 +113,7 @@ class DetailFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             android.R.id.home -> {
                 findNavController().navigateUp()
                 return true
@@ -126,13 +122,17 @@ class DetailFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun bindItemDetails(drink: Drink) {
+    fun bindItemsDetail(drinkResponse: Drink) {
+
         binding.apply {
-            tvTitleDetail.text = drink.strDrink
-            tvIngredients.text = checkIngredients(drink)
-            tvTitleDetail.text = drink.strDrink
-            tvTitleDetail.text = drink.strDrink
+            tvTitleDetail.text = drinkResponse.strDrink
+            tvIngredients.text = checkIngredients(drinkResponse)
+            tvMeasure.text = checkMeasure(drinkResponse)
+            tvInstructions.text = drinkResponse.strInstructions
         }
+        Glide.with(this)
+            .load(drinkResponse.strDrinkThumb)
+            .into(binding.ivDrinkDetail)
 
     }
 
@@ -189,4 +189,6 @@ class DetailFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
+
+
 }

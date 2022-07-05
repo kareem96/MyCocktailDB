@@ -16,12 +16,11 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorSecondary"
             app:tabGravity="fill"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorHeight="4dp"
             app:tabInlineLabel="true"
-            app:tabMode="fixed"/>
+            app:tabMode="fixed" />
 
         <View
             android:layout_width="match_parent"

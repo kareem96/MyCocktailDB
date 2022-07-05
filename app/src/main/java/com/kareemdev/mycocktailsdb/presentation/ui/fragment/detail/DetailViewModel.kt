@@ -28,13 +28,4 @@ class DetailViewModel @Inject constructor(
         val response = repository.getSearch(id)
         _drinkLiveData.postValue(Event(response))
     }
-
-    fun favoriteCocktail(drink: DrinkPreview) = viewModelScope.launch {
-        if(drink.strDrink.isNotEmpty() || drink.strDrinkThumb.isNullOrEmpty()){
-            _drinkPreviewLiveData.postValue(Event(Resource.Error("Error")))
-        }else{
-            repository.upsert(drink)
-            _drinkPreviewLiveData.postValue(Event(Resource.Success(drink)))
-        }
-    }
 }

@@ -24,7 +24,7 @@ abstract class CocktailDatabase : RoomDatabase() {
         private fun createDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             CocktailDatabase::class.java,
-            "cocktail.db"
+            "cocktail_db.db"
         ).build()
     }
 }

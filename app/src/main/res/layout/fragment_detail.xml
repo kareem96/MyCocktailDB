@@ -26,7 +26,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@color/purple_200"
                 android:orientation="vertical"
                 app:cardCornerRadius="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -151,22 +150,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/design_default_color_primary"
-        android:clickable="true"
-        android:focusable="true"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="@color/black"
-        app:srcCompat="@drawable/ic_favorite"
-        app:tint="@color/white" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

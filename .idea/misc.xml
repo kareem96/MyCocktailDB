@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/fragment_alcoholic.xml" value="0.14590747330960854" />
         <entry key="app/src/main/res/layout/fragment_cocktail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.26" />
+        <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_non_alcoholic.xml" value="0.26" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.26" />
         <entry key="app/src/main/res/layout/item_cocktail.xml" value="0.10185185185185185" />

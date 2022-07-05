@@ -68,8 +68,7 @@ class AlcoholicFragment : Fragment() {
                 putSerializable("drink", it)
             }
             findNavController().navigate(
-                /*R.id.action_cocktailFragment2_to_detailFragment,*/
-                R.id.detailFragment,
+                R.id.action_homeCocktail_to_detailFragment,
                 bundle
             )
         }

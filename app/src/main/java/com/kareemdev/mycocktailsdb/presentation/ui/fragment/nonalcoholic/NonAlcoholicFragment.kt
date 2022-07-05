@@ -50,13 +50,15 @@ class NonAlcoholicFragment : Fragment() {
     }
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
 
         connectionLiveData = ConnectionLiveData(this.requireContext())
         connectionLiveData.observe(viewLifecycleOwner) { isAvailable ->
             if (isAvailable) {
                 viewModel.getNonAlcoholic()
+
                 setupObserver()
             } else {
                 Toast.makeText(
@@ -65,8 +67,8 @@ class NonAlcoholicFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-
         }
+
 
         setupRecyclerView()
         setupOnClick()
@@ -78,7 +80,7 @@ class NonAlcoholicFragment : Fragment() {
                 putSerializable("drink", it)
             }
             findNavController().navigate(
-                R.id.detailFragment,
+                R.id.action_homeCocktail_to_detailFragment,
                 bundle
             )
         }
