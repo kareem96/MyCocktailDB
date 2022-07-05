@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeCocktail">
+
+    <fragment
+        android:id="@+id/homeCocktail"
+        android:name="com.kareemdev.mycocktailsdb.presentation.ui.fragment.cocktail.CocktailFragment"
+        android:label="fragment_cocktail"
+        tools:layout="@layout/fragment_cocktail" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/searchCocktail"
+        android:name="com.kareemdev.mycocktailsdb.presentation.ui.fragment.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment2_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.kareemdev.mycocktailsdb.presentation.ui.fragment.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="drink"
+            app:argType="com.kareemdev.mycocktailsdb.data.model.DrinkPreview" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteCocktail"
+        android:name="com.kareemdev.mycocktailsdb.presentation.ui.fragment.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alcoholicFragment"
+        android:name="com.kareemdev.mycocktailsdb.presentation.ui.fragment.alcoholic.AlcoholicFragment"
+        android:label="fragment_alcoholic"
+        tools:layout="@layout/fragment_alcoholic" >
+        <action
+            android:id="@+id/action_alcoholicFragment_to_detailFragment2"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nonAlcoholicFragment"
+        android:name="com.kareemdev.mycocktailsdb.presentation.ui.fragment.nonalcoholic.NonAlcoholicFragment"
+        android:label="fragment_non_alcoholic"
+        tools:layout="@layout/fragment_non_alcoholic" >
+        <action
+            android:id="@+id/action_nonAlcoholicFragment_to_detailFragment2"
+            app:destination="@id/detailFragment" />
+    </fragment>
+</navigation>
