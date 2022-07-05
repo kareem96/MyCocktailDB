@@ -23,6 +23,11 @@ class Repository @Inject constructor(
         return handleListCocktailResponse(api.getAllNoAlcoholicDrinks())
     }
 
+    override suspend fun getGlass(): Resource<CocktailList> {
+        return handleListCocktailResponse(api.getGlass())
+
+    }
+
     override suspend fun getSearch(searchId: String): Resource<DrinkList> {
         return handleListDrinkResponse(api.searchDrinksById(searchId))
     }

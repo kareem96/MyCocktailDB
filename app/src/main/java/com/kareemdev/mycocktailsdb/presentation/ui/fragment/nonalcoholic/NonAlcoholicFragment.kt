@@ -43,7 +43,6 @@ class NonAlcoholicFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        requireActivity().title = "Non Alcoholic"
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         _binding = FragmentNonAlcoholicBinding.inflate(inflater, container, false)
         return binding.root

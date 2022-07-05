@@ -43,7 +43,6 @@ class DetailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        requireActivity().title = "Drink"
         (activity as AppCompatActivity).supportActionBar?.let {
             it.setHomeButtonEnabled(true)
             it.setDisplayShowHomeEnabled(true)

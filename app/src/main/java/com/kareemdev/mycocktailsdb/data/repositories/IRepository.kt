@@ -11,6 +11,8 @@ interface IRepository {
 
     suspend fun getNonAlcoholic(): Resource<CocktailList>
 
+    suspend fun getGlass(): Resource<CocktailList>
+
     suspend fun getSearch(searchId: String):Resource<DrinkList>
 
     suspend fun getSearchByName(searchName: String):Resource<CocktailList>

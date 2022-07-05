@@ -12,6 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.kareemdev.mycocktailsdb.R
 import com.kareemdev.mycocktailsdb.databinding.FragmentCocktailBinding
 import com.kareemdev.mycocktailsdb.presentation.ui.fragment.alcoholic.AlcoholicFragment
+import com.kareemdev.mycocktailsdb.presentation.ui.fragment.glass.GlassFragment
 import com.kareemdev.mycocktailsdb.presentation.ui.fragment.nonalcoholic.NonAlcoholicFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,13 +30,17 @@ class CocktailFragment : Fragment() {
     val binding: FragmentCocktailBinding get() = _binding!!
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentCocktailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    val listTab = arrayListOf("Alcoholic", "Non-Alcoholic")
+    val listTab = arrayListOf("Alcoholic", "Category", "Glass")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,14 +56,16 @@ class CocktailFragment : Fragment() {
 
     class FragmentTypeAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
-            return 2
+            return 3
         }
 
         override fun createFragment(position: Int): Fragment {
             if (position == 0) {
                 return AlcoholicFragment()
-            } else {
+            } else if (position == 1) {
                 return NonAlcoholicFragment()
+            } else {
+                return GlassFragment()
             }
         }
     }

@@ -14,8 +14,16 @@ interface Api {
         apiKey: String = API_KEY
     ): Response<CocktailList>
 
-    @GET("api/json/v1/1/filter.php?a=Non_Alcoholic")
+    /*@GET("api/json/v1/1/filter.php?a=Non_Alcoholic")*/
+    @GET("api/json/v1/1/filter.php?c=Ordinary_Drink")
     suspend fun getAllNoAlcoholicDrinks(
+        @Query("apiKey")
+        apiKey: String = API_KEY
+    ): Response<CocktailList>
+
+
+    @GET("api/json/v1/1/filter.php?g=Cocktail_glass")
+    suspend fun getGlass(
         @Query("apiKey")
         apiKey: String = API_KEY
     ): Response<CocktailList>

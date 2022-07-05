@@ -8,9 +8,12 @@
     tools:context=".presentation.ui.fragment.search.SearchFragment">
 
     <EditText
+        android:padding="10dp"
+        android:layout_margin="10dp"
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/outline"
         android:hint="Search"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
